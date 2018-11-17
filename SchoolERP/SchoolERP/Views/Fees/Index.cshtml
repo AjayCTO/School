@@ -1,0 +1,66 @@
+﻿@model IEnumerable<SchoolERP.Models.Fees>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="content">
+
+
+    <div class="page-header">
+
+        <div class="row">
+            <div class="col-md-8">
+                <h3>All Feeses</h3>
+            </div>
+            <div class="col-md-4">
+                <a href="/Fees/Create" class="pull-right btn btn-primary"> <i class="fa fa-plus"></i> Create New</a>
+
+            </div>
+
+        </div>
+
+
+    </div>
+    <div class="well">
+        <table id="myTable" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Amount</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+<script>
+        $(document).ready(function () {
+            $("#myTable").DataTable({
+                "processing": true, // for show progress bar
+                "serverSide": true, // for process server side
+                "filter": true, // this is for disable filter (search box)
+                "orderMulti": false, // for disable multiple column at once
+                "ajax": {
+                    "url": "/Fees/LoadData",
+                    "type": "POST",
+                    "datatype": "json"
+                },
+                "columns": [
+                        { "data": "Type", "name": "Type", "autoWidth": true },
+                          { "data": "Amount", "name": "Amount", "autoWidth": true },
+                         {
+                             "orderable": false,
+                             "mRender": function (data, type, row) {
+                                 var _a = '<a   class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" ><span class="glyphicon glyphicon-trash""  align="center"></span></a>';
+                                 return '<a href="/Fees/Edit/' + row.Id + '" class="btn btn-primary" ><span class="glyphicon glyphicon-pencil"  align="center"></span></a>  ' + _a;
+                             }
+                         },
+                ]
+            });
+        });
+
+    
+
+
+</script>

@@ -1,0 +1,450 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+@*<head>
+        <meta charset="utf-8" />
+        <title>@ViewData("Title") - My ASP.NET MVC Application</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+    </head>*@
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <link rel="SHORTCUT ICON" href="http://school.inilabs.net/v2.2/uploads/images/site.png" />
+
+    <script src="~/JS/jquery.js"></script>
+
+    @*
+        <script type="text/javascript" src="http://school.inilabs.net/v2.2/assets/datepicker/datepicker.js"></script>
+        <script type="text/javascript" src="http://school.inilabs.net/v2.2/assets/timepicker/timepicker.js"></script>
+        <script type="text/javascript" src="http://school.inilabs.net/v2.2/assets/toastr/toastr.min.js"></script>*@
+    <link href="~/CSS/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="~/CSS/dataTables.bootstrap.min.css" rel="stylesheet" />
+    <link href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+
+
+
+    @*<link href="http://school.inilabs.net/v2.2/assets/datatables/dataTables.bootstrap.css" rel="stylesheet">*@
+    <link href="~/CSS/style.css" rel="stylesheet" />
+
+    @*<link href="http://school.inilabs.net/v2.2/assets/datepicker/datepicker.css" rel="stylesheet">
+        <link href="http://school.inilabs.net/v2.2/assets/timepicker/timepicker.css" rel="stylesheet">*@
+
+    <link href="~/CSS/hidetable.css" rel="stylesheet" />
+
+    <link href="~/CSS/inilabs.css" rel="stylesheet" />
+
+    <link href="~/CSS/responsive.css" rel="stylesheet" />
+
+
+    @*<link href="http://school.inilabs.net/v2.2/assets/toastr/toastr.min.css" rel="stylesheet">
+        <link href="http://school.inilabs.net/v2.2/assets/inilabs/rid.css" rel="stylesheet">*@
+
+    @*<link rel="stylesheet" href="http://school.inilabs.net/v2.2/assets/select2/css/select2.css">
+        <link rel="stylesheet" href="http://school.inilabs.net/v2.2/assets/select2/css/select2-bootstrap.css">
+        <link rel="stylesheet" href="http://school.inilabs.net/v2.2/assets/select2/css/gh-pages.css">
+        <link rel="stylesheet" href="http://school.inilabs.net/v2.2/assets/jqueryUI/jqueryui.css">*@
+    <!-- datatable buttons  -->
+    @*<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.1.2/css/buttons.dataTables.min.css">*@
+    <!-- datatables buttons end -->
+</head>
+
+<body class="skin-blue pace-done">
+    @*<header>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>
+                </div>
+                <div class="float-right">
+                    <section id="login">
+                        @Html.Partial("_LoginPartial")
+                    </section>
+                    <nav>
+                        <ul id="menu">
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("About", "About", "Home")</li>
+                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>*@
+    <header class="header">
+        <a href="http://school.inilabs.net/v2.2/dashboard/index" class="logo">
+            <!-- Add the class icon to your logo image or logo icon to add the margining -->
+            iNiLabs School
+        </a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation">
+            <!-- Sidebar toggle button-->
+            <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <div class="navbar-right">
+                <ul class="nav navbar-nav">
+                    <!-- Messages: style can be found in dropdown.less-->
+                    <li class="dropdown messages-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-bell-o"></i>
+                            <span class='label label-danger'><label class='alert-image'>7</label></span>
+                        </a>
+                        <ul class='dropdown-menu'><li class='header'>You have 7 notifications</li><li><ul class='menu'><li><a href=http://school.inilabs.net/v2.2/notice/view/7><div class='pull-left'><img class='img-circle' src='http://school.inilabs.net/v2.2/uploads/images/site.png'></div><h4>Lorem ipsum dolo..<small><i class='fa fa-clock-o'></i> Aug 13 2015</small></h4><p>Lorem ipsum dolor sit amet, co..</p></a></li><li><a href=http://school.inilabs.net/v2.2/notice/view/6><div class='pull-left'><img class='img-circle' src='http://school.inilabs.net/v2.2/uploads/images/site.png'></div><h4>Lorem ipsum dolo..<small><i class='fa fa-clock-o'></i> Aug 13 2015</small></h4><p>Lorem ipsum dolor sit amet, co..</p></a></li><li><a href=http://school.inilabs.net/v2.2/notice/view/5><div class='pull-left'><img class='img-circle' src='http://school.inilabs.net/v2.2/uploads/images/site.png'></div><h4>Lorem ipsum dolo..<small><i class='fa fa-clock-o'></i> Aug 13 2015</small></h4><p>Lorem ipsum dolor sit amet, co..</p></a></li><li><a href=http://school.inilabs.net/v2.2/notice/view/4><div class='pull-left'><img class='img-circle' src='http://school.inilabs.net/v2.2/uploads/images/site.png'></div><h4>Lorem ipsum dolo..<small><i class='fa fa-clock-o'></i> Aug 13 2015</small></h4><p>Lorem ipsum dolor sit amet, co..</p></a></li><li><a href=http://school.inilabs.net/v2.2/notice/view/3><div class='pull-left'><img class='img-circle' src='http://school.inilabs.net/v2.2/uploads/images/site.png'></div><h4>Lorem ipsum dolo..<small><i class='fa fa-clock-o'></i> Aug 13 2015</small></h4><p>Lorem ipsum dolor sit amet, co..</p></a></li><li><a href=http://school.inilabs.net/v2.2/notice/view/2><div class='pull-left'><img class='img-circle' src='http://school.inilabs.net/v2.2/uploads/images/site.png'></div><h4>Lorem ipsum dolo..<small><i class='fa fa-clock-o'></i> Aug 13 2015</small></h4><p>Lorem ipsum dolor sit a..</p></a></li><li><a href=http://school.inilabs.net/v2.2/notice/view/1><div class='pull-left'><img class='img-circle' src='http://school.inilabs.net/v2.2/uploads/images/site.png'></div><h4>Lorem ipsum dolo..<small><i class='fa fa-clock-o'></i> Aug 13 2015</small></h4><p>Lorem ipsum dolor sit a..</p></a></li></ul></li><li class='footer'><a href=http://school.inilabs.net/v2.2/notice/index>See All Notifications</a></li></ul>
+                    </li>
+                    <!-- Notifications: style can be found in dropdown.less -->
+                    <li class="dropdown notifications-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <img class="language-img" src="http://school.inilabs.net/v2.2/uploads/language_image/english.png" />
+                            <span class="label label-warning">14</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="header"> Language</li>
+                            <li>
+                                <!-- inner menu: contains the actual data -->
+                                <ul class="menu">
+                                    <li class="language" id="arabic">
+                                        <a href="http://school.inilabs.net/v2.2/language/index/arabic">
+                                            <div class="pull-left">
+                                                <img src="http://school.inilabs.net/v2.2/uploads/language_image/arabic.png" />
+                                            </div>
+                                            <h4>
+                                                Arabic
+                                            </h4>
+                                        </a>
+                                    </li>
+
+                                    <li class="language" id="bengali">
+                                        <a href="http://school.inilabs.net/v2.2/language/index/bengali">
+                                            <div class="pull-left">
+                                                <img src="http://school.inilabs.net/v2.2/uploads/language_image/bengali.png" />
+                                            </div>
+                                            <h4>
+                                                Bengali
+                                            </h4>
+                                        </a>
+                                    </li>
+
+                                    <li class="language" id="chinese">
+                                        <a href="http://school.inilabs.net/v2.2/language/index/chinese">
+                                            <div class="pull-left">
+                                                <img src="http://school.inilabs.net/v2.2/uploads/language_image/chinese.png" />
+                                            </div>
+                                            <h4>
+                                                Chinese
+                                            </h4>
+                                        </a>
+                                    </li>
+
+                                    <li class="language" id="english">
+                                        <a href="http://school.inilabs.net/v2.2/language/index/english">
+                                            <div class="pull-left">
+                                                <img src="http://school.inilabs.net/v2.2/uploads/language_image/english.png" />
+                                            </div>
+                                            <h4>
+                                                English
+                                                <i class='glyphicon glyphicon-ok'></i>
+                                            </h4>
+                                        </a>
+                                    </li>
+
+                                    <li class="language" id="french">
+                                        <a href="http://school.inilabs.net/v2.2/language/index/french">
+                                            <div class="pull-left">
+                                                <img src="http://school.inilabs.net/v2.2/uploads/language_image/french.png" />
+                                            </div>
+                                            <h4>
+                                                French
+                                            </h4>
+                                        </a>
+                                    </li>
+
+                                    <li class="language" id="german">
+                                        <a href="http://school.inilabs.net/v2.2/language/index/german">
+                                            <div class="pull-left">
+                                                <img src="http://school.inilabs.net/v2.2/uploads/language_image/german.png" />
+                                            </div>
+                                            <h4>
+                                                German
+                                            </h4>
+                                        </a>
+                                    </li>
+
+                                    <li class="language" id="hindi">
+                                        <a href="http://school.inilabs.net/v2.2/language/index/hindi">
+                                            <div class="pull-left">
+                                                <img src="http://school.inilabs.net/v2.2/uploads/language_image/hindi.png" />
+                                            </div>
+                                            <h4>
+                                                Hindi
+                                            </h4>
+                                        </a>
+                                    </li>
+
+                                    <li class="language" id="indonesian">
+                                        <a href="http://school.inilabs.net/v2.2/language/index/indonesian">
+                                            <div class="pull-left">
+                                                <img src="http://school.inilabs.net/v2.2/uploads/language_image/indonesian.png" />
+                                            </div>
+                                            <h4>
+                                                Indonesian
+                                            </h4>
+                                        </a>
+                                    </li>
+
+                                    <li class="language" id="italian">
+                                        <a href="http://school.inilabs.net/v2.2/language/index/italian">
+                                            <div class="pull-left">
+                                                <img src="http://school.inilabs.net/v2.2/uploads/language_image/italian.png" />
+                                            </div>
+                                            <h4>
+                                                Italian
+                                            </h4>
+                                        </a>
+                                    </li>
+
+                                    <li class="language" id="romanian">
+                                        <a href="http://school.inilabs.net/v2.2/language/index/romanian">
+                                            <div class="pull-left">
+                                                <img src="http://school.inilabs.net/v2.2/uploads/language_image/romanian.png" />
+                                            </div>
+                                            <h4>
+                                                Romanian
+                                            </h4>
+                                        </a>
+                                    </li>
+
+                                    <li class="language" id="russian">
+                                        <a href="http://school.inilabs.net/v2.2/language/index/russian">
+                                            <div class="pull-left">
+                                                <img src="http://school.inilabs.net/v2.2/uploads/language_image/russian.png" />
+                                            </div>
+                                            <h4>
+                                                Russian
+                                            </h4>
+                                        </a>
+                                    </li>
+
+                                    <li class="language" id="spanish">
+                                        <a href="http://school.inilabs.net/v2.2/language/index/spanish">
+                                            <div class="pull-left">
+                                                <img src="http://school.inilabs.net/v2.2/uploads/language_image/spanish.png" />
+                                            </div>
+                                            <h4>
+                                                Spanish
+                                            </h4>
+                                        </a>
+                                    </li>
+
+                                    <li class="language" id="thai">
+                                        <a href="http://school.inilabs.net/v2.2/language/index/thai">
+                                            <div class="pull-left">
+                                                <img src="http://school.inilabs.net/v2.2/uploads/language_image/thai.png" />
+                                            </div>
+                                            <h4>
+                                                Thai
+                                            </h4>
+                                        </a>
+                                    </li>
+
+                                    <li class="language" id="turkish">
+                                        <a href="http://school.inilabs.net/v2.2/language/index/turkish">
+                                            <div class="pull-left">
+                                                <img src="http://school.inilabs.net/v2.2/uploads/language_image/turkish.png" />
+                                            </div>
+                                            <h4>
+                                                Turkish
+                                            </h4>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li class="footer"></li>
+                        </ul>
+                    </li>
+                    <!-- User Account: style can be found in dropdown.less -->
+                    <li class="dropdown user user-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <img src="http://school.inilabs.net/v2.2/uploads/images/defualt.png" class="user-logo" alt="" />
+
+                            <span>
+                                Jedidiah Wa..                                    <i class="caret"></i>
+                            </span>
+                        </a>
+
+                        <ul class="dropdown-menu">
+
+                            <!-- Menu Body -->
+
+                            <li class="user-body">
+                                <div class="col-xs-6 text-center">
+                                    <a href="http://school.inilabs.net/v2.2/profile/index">
+                                        <div><i class="fa fa-briefcase"></i></div>
+                                        Profile
+                                    </a>
+
+                                </div>
+                                <div class="col-xs-6 text-center">
+                                    <a href="http://school.inilabs.net/v2.2/signin/cpassword">
+                                        <div><i class="fa fa-lock"></i></div>
+                                        Password
+                                    </a>
+                                </div>
+                            </li>
+
+                            <!-- Menu Footer-->
+                            <li class="user-footer">
+
+                                <div class="text-center">
+                                    <a href="http://school.inilabs.net/v2.2/signin/signout">
+                                        <div><i class="fa fa-power-off"></i></div>
+                                        Log out
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div id="body">
+      
+        <div class="wrapper row-offcanvas row-offcanvas-left">
+            <!-- Left side column. contains the logo and sidebar -->
+            <aside class="left-side sidebar-offcanvas">
+                <!-- sidebar: style can be found in sidebar.less -->
+                <section class="sidebar">
+                    <!-- Sidebar user panel -->
+                    <div class="user-panel">
+                        <div class="pull-left image">
+                            <img style="display:block" src="http://school.inilabs.net/v2.2/uploads/images/defualt.png" class="img-circle" alt="" />
+                        </div>
+
+                        <div class="pull-left info">
+                            <p>Jedidiah Wa..</p>                            <a href="http://school.inilabs.net/v2.2/profile/index">
+                                <i class="fa fa-hand-o-right color-green"></i>
+                                Teacher
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- sidebar menu: : style can be found in sidebar.less -->
+                    <ul class="sidebar-menu">
+                        <li>
+                            <a href="/"><i class="fa fa-laptop"></i><span>Dashboard</span></a>
+                        </li>
+                        <li>
+                            <a href="/Employee"><i class="fa fa-users"></i><span>Employee</span></a>
+                        </li>
+                        <li>
+                            <a href="/ClassStandard"><i class="fa fa-home"></i><span>ClassStandard</span></a>
+                        </li>
+                        <li>
+                            <a href="/Fees"><i class="fa fa-money"></i><span>Fees</span></a>
+                        </li>
+                        <li>
+                            <a href="/Schools"><i class="fa fa-graduation-cap"></i><span>Schools</span></a>
+                        </li>
+                    
+
+
+
+
+
+                    </ul>
+
+                </section>
+                <!-- /.sidebar -->
+            </aside>
+
+            <aside class="right-side">
+                @RenderBody()
+
+            </aside>
+
+
+        </div><!-- ./wrapper -->
+
+
+    </div>
+
+
+
+
+    <footer>
+        
+    </footer>
+
+    @*@Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required:=False)*@
+
+
+
+    <script src="~/JS/bootstrap.min.js"></script>
+    <script src="~/JS/style.js"></script>
+    <script src="~/JS/jquery.dataTables.min.js"></script>
+
+    <!-- Style js -->
+    <!-- Jquery datatable tools js -->
+    @*<script type="text/javascript" src="http://school.inilabs.net/v2.2/assets/datatables/tools/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="http://school.inilabs.net/v2.2/assets/datatables/tools/dataTables.buttons.min.js"></script>
+        <script type="text/javascript" src="http://school.inilabs.net/v2.2/assets/datatables/tools/jszip.min.js"></script>
+        <script type="text/javascript" src="http://school.inilabs.net/v2.2/assets/datatables/tools/pdfmake.min.js"></script>
+        <script type="text/javascript" src="http://school.inilabs.net/v2.2/assets/datatables/tools/vfs_fonts.js"></script>
+        <script type="text/javascript" src="http://school.inilabs.net/v2.2/assets/datatables/tools/buttons.html5.min.js"></script>*@
+    <!-- dataTables Tools / -->
+    <!-- Datatable js -->
+    @*<script type="text/javascript" src="http://school.inilabs.net/v2.2/assets/datatables/jquery.dataTables.js"></script>
+        <script type="text/javascript" src="http://school.inilabs.net/v2.2/assets/datatables/dataTables.bootstrap.js"></script>*@
+
+    <script type="text/javascript" src="http://school.inilabs.net/v2.2/assets/inilabs/inilabs.js"></script>
+    
+    <!-- autocomplete plugin select2 js -->
+    @*<script type="text/javascript" src="http://school.inilabs.net/v2.2/assets/select2/select2.js"></script>*@
+
+    <!-- Jquery UI jquery -->
+    @*<script src="http://school.inilabs.net/v2.2/assets/jqueryUI/jqueryui.min.js" type="text/javascript" charset="utf-8" async defer></script>*@
+
+
+    <!-- Jquery gritter -->
+    <!-- datatable with buttons -->
+    
+    <!-- dataTable with buttons end -->
+
+
+    <script type="text/javascript">
+        //if ( window.self !== window.top ) {
+        //  window.top.location.href='https://codecanyon.net/item/inilabs-school-management-system-express/11630340';
+        //}
+    </script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-61634883-2', 'auto');
+        ga('send', 'pageview');
+
+       // $(".content .text-box").addClass("form-control")
+
+        $(document).ready(function () {
+
+            //$(".content .text-box").addClass("form-control")
+
+        });
+
+    </script>
+
+
+</body>
+</html>
